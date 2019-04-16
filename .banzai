@@ -20,7 +20,7 @@ banzai {
     [
         file: 'settings.xml',
         label: 'artifactoryPass',
-        credId: '502700248-artifactory-pass',
+        secretId: '502700248-artifactory-pass',
     ]
   ]
 }
