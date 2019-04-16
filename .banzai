@@ -14,7 +14,7 @@ banzai {
   build = true
   publish = true
   publishBranches = /tag\-(.*)|develop/
-  deploy = false
+  deploy = true
   downstreamBuildBranches = /develop/
   secretFilters = [
     [
