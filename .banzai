@@ -17,10 +17,10 @@ banzai {
   deploy = true
   downstreamBuildBranches = /develop/
   filterSecrets = [
-    [
+    /develop/: [
         file: 'settings.xml',
         label: 'artifactoryPass',
-        secretId: '502700248-artifactory-pass',
+        secretId: '502700248-artifactory-pass'
     ]
   ]
 }
