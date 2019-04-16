@@ -16,6 +16,7 @@ banzai {
   publishBranches = /tag\-(.*)|develop/
   deploy = false
   downstreamBuildBranches = /develop/
+  settingsXmlCredId = '502700248-artifactory-pass'
 }
 
 
