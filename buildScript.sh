@@ -1,2 +1,4 @@
 #!/bin/bash
-mvn clean install -S settings.xml
+
+echo "BUILD SCRIPT - Building!"
+mvn -s ./settings.xml clean install -U
