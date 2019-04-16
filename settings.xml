@@ -3,32 +3,32 @@
         <server>
             <id>devcloud-artifactory</id>
             <username>502700248</username>
-            <password>${banzai}</password>
+            <password>${banzai:artifactoryPass}</password>
         </server>
         <server>
             <id>devcloud-artifactory-snapshots</id>
             <username>502700248</username>
-            <password>${banzai}</password>
+            <password>${banzai:artifactoryPass}</password>
         </server>
         <server>
             <id>artifactory.repo</id>
             <username>502700248</username>
-            <password>${banzai}</password>
+            <password>${banzai:artifactoryPass}</password>
         </server>
         <server>
             <id>lnssm-release</id>
             <username>502700248</username>
-            <password>${banzai}</password>
+            <password>${banzai:artifactoryPass}</password>
         </server>
         <server>
             <id>lnssm-snapshot</id>
             <username>502700248</username>
-            <password>${banzai}</password>
+            <password>${banzai:artifactoryPass}</password>
         </server>
         <server>
             <id>PS-JAVA</id>
             <username>502700248</username>
-            <password>${banzai}</password>
+            <password>${banzai:artifactoryPass}</password>
         </server>
     </servers>
     <!-- Repositories
