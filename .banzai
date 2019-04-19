@@ -22,7 +22,7 @@ banzai {
         label: 'artifactoryPass',
         secretId: '502700248-artifactory-pass'
     ]
-  ],
+  ]
   vulnerabilityScans = [
     /PR\-(.*)/: [
       [
