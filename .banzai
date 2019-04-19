@@ -22,6 +22,18 @@ banzai {
         label: 'artifactoryPass',
         secretId: '502700248-artifactory-pass'
     ]
+  ],
+  vulnerabilityScans = [
+    /PR\-(.*)/: [
+      [
+        type: 'checkmarx',
+        credId: 'ge-checkmarx',
+        resultEmails: ['simon.townsend1@ge.com'],
+        preset: '17',
+        teamUUID: '53f766d4-5402-4980-8a15-2655ba6d18f0',
+        abortOnError: true
+      ]
+    ]
   ]
 }
 
