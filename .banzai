@@ -32,6 +32,14 @@ banzai {
         preset: '17',
         teamUUID: '53f766d4-5402-4980-8a15-2655ba6d18f0',
         abortOnError: true
+      ],
+      [
+        type: 'coverity',
+        credId: 'coverity-auth-key-file',
+        resultEmails: ['simon.townsend1@ge.com'],
+        buildCmd: 'mvn -s ./settings.xml clean install -U',
+        projectName: '1000373486_mdi',
+        abortOnError: true
       ]
     ]
   ]
