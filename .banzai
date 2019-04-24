@@ -38,7 +38,7 @@ banzai {
         credId: 'coverity-auth-key-file',
         toolId: 'coverity-2018.12',
         serverHost: 'coverity.power.ge.com',
-        serverPort: '443'
+        serverPort: '443',
         resultEmails: ['simon.townsend1@ge.com'],
         buildCmd: 'mvn -s ./settings.xml clean install -U',
         projectName: '1000373486_mdi',
