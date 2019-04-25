@@ -1,3 +1,4 @@
+@Library('Banzai@develop')
 banzai {
   appName = 'test-maven-build'
   jdk = 'jdk 11.0.1'
