@@ -1,6 +1,6 @@
 banzai {
   appName = 'test-maven-build'
-  jdk = 'jdk 10.0.1'
+  jdk = 'jdk 11.0.1'
   sshCreds = ['server-ssh-creds-jenkins-service', 'git-ssh-creds-jenkins-service']
   gitTokenId = 'sweeney-git-token'
   flowdock = true
@@ -28,7 +28,7 @@ banzai {
       [
         type: 'checkmarx',
         credId: 'ge-checkmarx',
-        resultEmails: ['simon.townsend1@ge.com'],
+        resultEmails: ['banzai@ge.com'],
         preset: '17',
         teamUUID: '53f766d4-5402-4980-8a15-2655ba6d18f0',
         abortOnError: true
@@ -39,7 +39,7 @@ banzai {
         toolId: 'coverity-2018.12',
         serverHost: 'coverity.power.ge.com',
         serverPort: '443',
-        resultEmails: ['simon.townsend1@ge.com'],
+        resultEmails: ['banzai@ge.com'],
         buildCmd: 'mvn -s ./settings.xml clean install -U',
         projectName: '1000373486_mdi',
         abortOnError: true
