@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "Running fake Publish"
+echo "Running fake Publish" 
