@@ -48,7 +48,7 @@ banzai {
         abortOnError: true
       ]
     ]
-  ],
+  ]
   qualityScans = [
       /PR\-(.*)|develop|master/: [
         [
