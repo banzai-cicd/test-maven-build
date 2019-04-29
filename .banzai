@@ -27,7 +27,7 @@ banzai {
     ]
   ]
   vulnerabilityScans = [
-    /PR\-(.*)|develop/: [
+    /PR\-(.*)|develop|master/: [
       [
         type: 'checkmarx',
         credId: 'ge-checkmarx',
@@ -50,14 +50,14 @@ banzai {
     ]
   ],
   qualityScans = [
-      /PR\-(.*)|develop/: [
+      /PR\-(.*)|develop|master/: [
         [
           type: 'sonar'
         ]
       ]
     ]
   powerDevOpsReporting: [
-    branches: /master|develop/,
+    branches: /develop|master/,
     uai: 'banzai-test-uai',
     ci: '1000373486',
     UAACredId: 'uaa-bearer-token',                  // UAA Bearer Token stored as Jenkins Cred
