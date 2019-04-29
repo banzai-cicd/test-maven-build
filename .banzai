@@ -60,7 +60,7 @@ banzai {
     branches: /develop|master/,
     uai: 'banzai-test-uai',
     ci: '1000373486',
-    UAACredId: 'uaa-bearer-token',                  // UAA Bearer Token stored as Jenkins Cred
+    UAACredId: 'uaa-bearer-token',
     UAAUrl: 'https://a8a2ffc4-b04e-4ec1-bfed-7a51dd408725.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials',
     metricsUrl: 'https://dev-cicadavpc-secure-pipeline-services-vanguard.cicada.digital.ge.com'
   ]
