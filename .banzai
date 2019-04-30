@@ -1,4 +1,4 @@
-@Library('Banzai@coverity-upgrade') _
+@Library('Banzai@reporting-dash') _
 banzai {
   appName = 'test-maven-build'
   jdk = 'jdk 10.0.1'
@@ -52,7 +52,9 @@ banzai {
   qualityScans = [
       /PR\-(.*)|develop|master/: [
         [
-          type: 'sonar'
+          type: 'sonar',
+          serverUrl: 'https://sonarqube-prj-uai3023374-1khzijtwdgcwdt3qthlebgyojtz.apps.c01.container.cloud.ge.com',
+          credId: 'dib-sonar-auth-token'
         ]
       ]
     ]
