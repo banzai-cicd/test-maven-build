@@ -1,9 +1,11 @@
-@Library('Banzai@develop') _
+@Library('Banzai@reporting-dash') _
 banzai {
   appName = 'test-maven-build'
   jdk = 'jdk 10.0.1'
   sshCreds = ['server-ssh-creds-jenkins-service', 'git-ssh-creds-jenkins-service']
   gitTokenId = 'sweeney-git-token'
+  httpsProxyHost = 'PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com'
+  httpsProxyPort = 80
   flowdock = true
   flowdockAuthor = [
     name: 'Banzai',
@@ -25,7 +27,7 @@ banzai {
     ]
   ]
   vulnerabilityScans = [
-    /PR\-(.*)/: [
+    /PR\-(.*)|develop|master/: [
       [
         type: 'checkmarx',
         credId: 'ge-checkmarx',
@@ -47,6 +49,22 @@ banzai {
       ]
     ]
   ]
+  qualityScans = [
+      /PR\-(.*)|develop|master/: [
+        [
+          type: 'sonar',
+          serverUrl: 'https://sonarqube-prj-uai3023374-1khzijtwdgcwdt3qthlebgyojtz.apps.c01.container.cloud.ge.com',
+          credId: 'dib-sonar-auth-token'
+        ]
+      ]
+    ]
+  powerDevOpsReporting: [
+    branches: /develop|master/,
+    uai: 'banzai-test-uai',
+    ci: '1000373486',
+    UAACredId: 'uaa-bearer-token',
+    UAAUrl: 'https://a8a2ffc4-b04e-4ec1-bfed-7a51dd408725.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials',
+    metricsUrl: 'https://dev-cicadavpc-secure-pipeline-services-vanguard.cicada.digital.ge.com'
+  ]
 }
-
 
