@@ -58,7 +58,7 @@ banzai {
       ]
     ]
   ]
-  powerDevOpsReporting: [
+  powerDevOpsReporting = [
     branches: /develop|master/,
     uai: 'banzai-test-uai',
     ci: '1000373486',
