@@ -50,14 +50,14 @@ banzai {
     ]
   ]
   qualityScans = [
-      /PR\-(.*)|develop|master/: [
-        [
-          type: 'sonar',
-          serverUrl: 'https://sonarqube-prj-uai3023374-1khzijtwdgcwdt3qthlebgyojtz.apps.c01.container.cloud.ge.com',
-          credId: 'dib-sonar-auth-token'
-        ]
+    /PR\-(.*)|develop|master/: [
+      [
+        type: 'sonar',
+        serverUrl: 'https://sonarqube-prj-uai3023374-1khzijtwdgcwdt3qthlebgyojtz.apps.c01.container.cloud.ge.com',
+        credId: 'dib-sonar-auth-token'
       ]
     ]
+  ]
   powerDevOpsReporting: [
     branches: /develop|master/,
     uai: 'banzai-test-uai',
