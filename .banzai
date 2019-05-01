@@ -4,8 +4,6 @@ banzai {
   jdk = 'jdk 10.0.1'
   sshCreds = ['server-ssh-creds-jenkins-service', 'git-ssh-creds-jenkins-service']
   gitTokenId = 'sweeney-git-token'
-  httpsProxyHost = 'PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com'
-  httpsProxyPort = 80
   flowdock = true
   flowdockAuthor = [
     name: 'Banzai',
