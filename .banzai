@@ -10,6 +10,9 @@ banzai {
     avatar: 'https://github.build.ge.com/avatars/u/55576?s=400&u=700c7e70356d1f5a679908c1d7c7e5bf8e2beab6',
     email: 'banzai@ge.com'
   ]
+  httpsProxyHost = env.https_proxy.split(":")[0]
+  httpsProxyPort = env.https_proxy.split(":")[1]
+  noProxy = env.no_proxy
   flowdockCredId = 'banzai-flowtoken'
   mergeBranches = /tag\-(.*)|develop/
   build = true
