@@ -1,4 +1,4 @@
-@Library('Banzai@develop') _
+@Library('Banzai@gitops') _
 banzai {
   appName = 'test-maven-build'
   jdk = 'jdk 10.0.1'
@@ -15,11 +15,11 @@ banzai {
   ]
   flowdockCredId = 'banzai-flowtoken'
   mergeBranches = /tag\-(.*)|develop/
-  build = true
+  build = false
   publish = true
   publishBranches = /tag\-(.*)|develop/
   deploy = false
-  downstreamBuildBranches = /develop/
+  gitOpsBranches = /develop|tag-*/
   filterSecrets = [
     /PR\-(.*)|develop/: [
         file: 'settings.xml',
