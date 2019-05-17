@@ -30,24 +30,6 @@ banzai {
         secretId: '502700248-artifactory-pass'
     ]
   ]
-  powerDevOpsReporting = [
-    branches: /develop|master/,
-    uai: 'banzai-test-uai',
-    ci: '1000373486',
-    uaaCredId: 'uaa-bearer-token',
-    uaaUrl: 'https://a8a2ffc4-b04e-4ec1-bfed-7a51dd408725.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials',
-    metricsUrl: 'https://dev-cicadavpc-secure-pipeline-services-vanguard.cicada.digital.ge.com',
-    environments: [
-      /develop/ : [
-        key: 0,
-        name: 'develop'
-      ],
-      /master/ : [
-        key: 1,
-        name: 'qa'
-      ]
-    ]
-  ]
 }
 
 /*
@@ -83,5 +65,23 @@ vulnerabilityScans = [
       ]
     ]
   ]
+  powerDevOpsReporting = [
+      branches: /develop|master/,
+      uai: 'banzai-test-uai',
+      ci: '1000373486',
+      uaaCredId: 'uaa-bearer-token',
+      uaaUrl: 'https://a8a2ffc4-b04e-4ec1-bfed-7a51dd408725.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials',
+      metricsUrl: 'https://dev-cicadavpc-secure-pipeline-services-vanguard.cicada.digital.ge.com',
+      environments: [
+        /develop/ : [
+          key: 0,
+          name: 'develop'
+        ],
+        /master/ : [
+          key: 1,
+          name: 'qa'
+        ]
+      ]
+    ]
   */
 
