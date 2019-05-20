@@ -15,7 +15,7 @@ banzai {
   ]
   flowdockCredId = 'banzai-flowtoken'
   mergeBranches = /tag\-(.*)|develop/
-  build = true
+  build = false
   publish = true
   publishBranches = /tag\-(.*)|develop/
   deploy = false
