@@ -21,7 +21,8 @@ banzai {
   deploy = false
   gitOpsTrigger = [
     jenkinsJob: '/Banzai/GitOps/master',
-    branches: /develop|tag-*/
+    branches: /develop|tag-*/,
+    stackId: 'dib'
   ]
   filterSecrets = [
     /PR\-(.*)|develop/: [
