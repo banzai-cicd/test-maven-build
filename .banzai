@@ -31,7 +31,10 @@ banzai {
         secretId: '502700248-artifactory-pass'
     ]
   ]
-  vulnerabilityScans = [
+}
+
+/**
+vulnerabilityScans = [
     /PR\-(.*)|develop|master/: [
       [
         type: 'checkmarx',
@@ -81,4 +84,4 @@ banzai {
       ]
     ]
   ]
-}
+  */
