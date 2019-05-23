@@ -2,6 +2,7 @@
 banzai {
   appName = 'test-maven-build'
   jdk = 'jdk 10.0.1'
+  startFresh = true
   sshCreds = ['server-ssh-creds-jenkins-service', 'git-ssh-creds-jenkins-service']
   gitTokenId = 'sweeney-git-token'
   flowdock = true
