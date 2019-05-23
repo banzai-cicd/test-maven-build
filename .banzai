@@ -16,10 +16,9 @@ banzai {
   ]
   flowdockCredId = 'banzai-flowtoken'
   mergeBranches = /tag\-(.*)|develop/
-  build = false
+  build = true
   publish = true
   publishBranches = /tag\-(.*)|develop/
-  deploy = false
   gitOpsTrigger = [
     jenkinsJob: '/Banzai/GitOps/master',
     branches: /develop|tag-*/,
