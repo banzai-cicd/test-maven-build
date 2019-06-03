@@ -19,8 +19,12 @@ banzai [
   httpsProxy: [
     envVar: 'https_proxy'
   ],
-  build: /.*/,
-  publish: /tag\-(.*)|develop/,
+  build: [
+    /.*/: [:]
+  ],
+  publish: [
+    /tag\-(.*)|develop/: [:]
+  ],
   gitOpsTrigger: [
     jenkinsJob: '/Banzai/GitOps/master',
     branches: /develop|tag-*/,
