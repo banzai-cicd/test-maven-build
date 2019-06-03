@@ -1,6 +1,6 @@
 @Library('Banzai@typed-config') _
 
-banzai [
+def cfg = [
   appName: 'test-maven-build',
   jdk: 'jdk 10.0.1',
   preCleanWorkspace = true,
@@ -88,3 +88,5 @@ banzai [
     ]
   ]
 ]
+
+banzai(cfg)
