@@ -1,39 +1,43 @@
-@Library('Banzai@gitops') _
-banzai {
-  appName = 'test-maven-build'
-  jdk = 'jdk 10.0.1'
-  preCleanWorkspace = true
-  sshCreds = ['server-ssh-creds-jenkins-service', 'git-ssh-creds-jenkins-service']
-  gitTokenId = 'sweeney-git-token'
-  flowdock = true
-  flowdockAuthor = [
-    name: 'Banzai',
-    avatar: 'https://github.build.ge.com/avatars/u/55576?s=400&u=700c7e70356d1f5a679908c1d7c7e5bf8e2beab6',
-    email: 'banzai@ge.com'
-  ]
-  httpsProxy = [
+@Library('Banzai@typed-config') _
+
+def cfg = [
+  appName: 'test-maven-build',
+  jdk: 'jdk 10.0.1',
+  preCleanWorkspace: true,
+  sshCreds: ['server-ssh-creds-jenkins-service', 'git-ssh-creds-jenkins-service'],
+  gitTokenId: 'sweeney-git-token',
+  flowdock: [
+    /.*/: [
+      credId: 'banzai-flowtoken',
+      author: [
+        name: 'Banzai',
+        avatarUrl: 'https://github.build.ge.com/avatars/u/55576?s=400&u=700c7e70356d1f5a679908c1d7c7e5bf8e2beab6',
+        email: 'banzai@ge.com'
+      ]
+    ]
+  ],
+  httpsProxy: [
     envVar: 'https_proxy'
-  ]
-  flowdockCredId = 'banzai-flowtoken'
-  mergeBranches = /tag\-(.*)|develop/
-  build = /.*/
-  publish = /tag\-(.*)|develop/
-  gitOpsTrigger = [
+  ],
+  build: [
+    /.*/: [:]
+  ],
+  publish: [
+    /tag\-(.*)|develop/: [:]
+  ],
+  gitOpsTrigger: [
     jenkinsJob: '/Banzai/GitOps/master',
     branches: /develop|tag-*/,
     stackId: 'dib'
-  ]
-  filterSecrets = [
+  ],
+  filterSecrets: [
     /PR\-(.*)|develop/: [
         file: 'settings.xml',
         label: 'artifactoryPass',
         secretId: '502700248-artifactory-pass'
     ]
-  ]
-}
-
-/**
-vulnerabilityScans = [
+  ],
+  vulnerabilityScans: [
     /PR\-(.*)|develop|master/: [
       [
         type: 'checkmarx',
@@ -55,8 +59,8 @@ vulnerabilityScans = [
         abortOnError: true
       ]
     ]
-  ]
-  qualityScans = [
+  ],
+  qualityScans: [
     /PR\-(.*)|develop|master/: [
       [
         type: 'sonar',
@@ -64,8 +68,8 @@ vulnerabilityScans = [
         credId: 'dib-sonar-auth-token'
       ]
     ]
-  ]
-  powerDevOpsReporting = [
+  ],
+  powerDevOpsReporting: [
     branches: /develop|master/,
     uai: 'banzai-test-uai',
     ci: '1000373486',
@@ -83,4 +87,6 @@ vulnerabilityScans = [
       ]
     ]
   ]
-  */
+]
+
+banzai(cfg)
