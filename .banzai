@@ -38,7 +38,7 @@ banzai([
     ]
   ],
   vulnerabilityScans: [
-    /PR\-(.*)|develop|master/: [
+    /develop|master/: [
       [
         type: 'checkmarx',
         credId: 'ge-checkmarx',
@@ -61,7 +61,7 @@ banzai([
     ]
   ],
   qualityScans: [
-    /PR\-(.*)|develop|master/: [
+    /develop|master/: [
       [
         type: 'sonar',
         serverUrl: 'https://sonarqube-prj-uai3023374-1khzijtwdgcwdt3qthlebgyojtz.apps.c01.container.cloud.ge.com',
