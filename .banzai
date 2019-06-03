@@ -1,6 +1,6 @@
 @Library('Banzai@typed-config') _
 
-def cfg = [
+banzai([
   appName: 'test-maven-build',
   jdk: 'jdk 10.0.1',
   preCleanWorkspace: true,
@@ -38,7 +38,7 @@ def cfg = [
     ]
   ],
   vulnerabilityScans: [
-    /PR\-(.*)|develop|master/: [
+    /develop|master/: [
       [
         type: 'checkmarx',
         credId: 'ge-checkmarx',
@@ -61,7 +61,7 @@ def cfg = [
     ]
   ],
   qualityScans: [
-    /PR\-(.*)|develop|master/: [
+    /develop|master/: [
       [
         type: 'sonar',
         serverUrl: 'https://sonarqube-prj-uai3023374-1khzijtwdgcwdt3qthlebgyojtz.apps.c01.container.cloud.ge.com',
@@ -87,6 +87,4 @@ def cfg = [
       ]
     ]
   ]
-]
-
-banzai(cfg)
+])
