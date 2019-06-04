@@ -25,9 +25,10 @@ banzai([
     /tag\-(.*)|develop/: [:]
   ],
   gitOpsTrigger: [
-    jenkinsJob: '/Banzai/GitOps/master',
-    branches: /develop|tag-*/,
-    stackId: 'dib'
+    /develop|tag-*/ : [
+      jenkinsJob: '/Banzai/GitOps/master',
+      stackId: 'dib'
+    ]
   ],
   filterSecrets: [
     /PR\-(.*)|develop/: [
@@ -84,6 +85,12 @@ banzai([
         key: 1,
         name: 'qa'
       ]
+    ]
+  ],
+  downstreamBuilds: [
+    /develop|master/: [
+      id: 'test-downstream-build',
+      job: /Banzai/TestMavenBuild/master
     ]
   ]
 ])
