@@ -1,5 +1,4 @@
-@Library('Banzai@typed-config') _
-
+@Library('Banzai@typed-config')
 banzai([
   appName: 'test-maven-build',
   jdk: 'jdk 10.0.1',
