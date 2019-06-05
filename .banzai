@@ -61,6 +61,17 @@ banzai([
         secretId: '502700248-artifactory-pass'
     ]
   ],
+  downstreamBuilds: [
+    /develop|master/: [
+      [
+        id: 'test-downstream-build',
+        job: '/Banzai/TestDownstreamBuild/master'
+      ]
+    ]
+  ]
+])
+
+/*
   vulnerabilityScans: [
     /develop|master/: [
       [
@@ -111,12 +122,4 @@ banzai([
       ]
     ]
   ],
-  downstreamBuilds: [
-    /develop|master/: [
-      [
-        id: 'test-downstream-build',
-        job: '/Banzai/TestDownstreamBuild/master'
-      ]
-    ]
-  ]
-])
+*/
