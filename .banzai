@@ -68,10 +68,7 @@ banzai([
         job: '/Banzai/TestDownstreamBuild/master'
       ]
     ]
-  ]
-])
-
-/*
+  ],
   vulnerabilityScans: [
     /develop|master/: [
       [
@@ -121,5 +118,5 @@ banzai([
         name: 'qa'
       ]
     ]
-  ],
-*/
+  ]
+])
