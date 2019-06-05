@@ -115,7 +115,7 @@ banzai([
     /develop|master/: [
       [
         id: 'test-downstream-build',
-        job: '/Banzai/TestMavenBuild/master'
+        job: '/Banzai/TestDownstreamBuild/master'
       ]
     ]
   ]
