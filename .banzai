@@ -47,7 +47,7 @@ banzai([
   ],
   integrationTests: [
     /.*/: [:]
-  ]
+  ],
   publish: [
     /tag\-(.*)|develop/: [:]
   ],
