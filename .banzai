@@ -45,8 +45,14 @@ banzai([
   build: [
     /.*/: [:]
   ],
+  integrationTests: [
+    /.*/: [:]
+  ]
   publish: [
     /tag\-(.*)|develop/: [:]
+  ],
+  deploy : [
+    /.*/: [:]
   ],
   gitOpsTrigger: [
     /develop|tag-*/ : [

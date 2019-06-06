@@ -1,4 +1,3 @@
 #!/bin/bash
 
-echo "Running fake Deploy"
-echo "We Did It!"
+echo "Running mock Deploy"
