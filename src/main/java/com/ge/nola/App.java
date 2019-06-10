@@ -2,7 +2,6 @@ package com.ge.nola;
 
 /**
  * Hello world!
- *
  */
 public class App 
 {
