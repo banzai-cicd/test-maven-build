@@ -1,7 +1,7 @@
 package com.ge.nola;
 
 /**
- * Hello world!
+ * Hello world! 
  *
  */
 public class App 
