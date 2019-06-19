@@ -1,8 +1,13 @@
 @Library('Banzai@develop') _
 banzai([
   appName: 'test-maven-build',
-  jdk: 'jdk 10.0.1',
-  preCleanWorkspace: true,
+  tools: [
+    jdk: 'jdk 10.0.1',
+    nodejs: 'node 11.10.0'
+  ],
+  cleanWorkspace: [
+    post: true
+  ],
   sshCreds: ['server-ssh-creds-jenkins-service', 'git-ssh-creds-jenkins-service'],
   gitTokenId: 'sweeney-git-token',
   flowdock: [
