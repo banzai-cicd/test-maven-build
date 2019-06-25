@@ -1,28 +1,135 @@
-banzai {
-  appName = 'test-maven-build'
-  jdk = 'jdk 11.0.1'
-  sshCreds = ['server-ssh-creds-jenkins-service', 'git-ssh-creds-jenkins-service']
-  gitTokenId = 'sweeney-git-token'
-  flowdock = true
-  flowdockAuthor = [
-    name: 'Banzai',
-    avatar: 'https://github.build.ge.com/avatars/u/55576?s=400&u=700c7e70356d1f5a679908c1d7c7e5bf8e2beab6',
-    email: 'banzai@ge.com'
-  ]
-  flowdockCredId = 'banzai-flowtoken'
-  mergeBranches = /tag\-(.*)|develop/
-  build = true
-  publish = true
-  publishBranches = /tag\-(.*)|develop/
-  deploy = true
-  downstreamBuildBranches = /develop/
-  secretFilters = [
-    [
+@Library('Banzai@develop') _
+banzai([
+  appName: 'test-maven-build',
+  timeout: 60,
+  tools: [
+    jdk: 'jdk 10.0.1',
+    nodejs: 'node 11.10.0'
+  ],
+  cleanWorkspace: [
+    post: true
+  ],
+  sshCreds: ['server-ssh-creds-jenkins-service', 'git-ssh-creds-jenkins-service'],
+  gitTokenId: 'sweeney-git-token',
+  flowdock: [
+    banzaiFlow: [
+      credId: 'banzai-flowtoken',
+      author: [
+        name: 'Banzai',
+        avatarUrl: 'https://github.build.ge.com/avatars/u/55576?s=400&u=700c7e70356d1f5a679908c1d7c7e5bf8e2beab6',
+        email: 'banzai@ge.com'
+      ]
+    ] 
+  ],
+  email: [
+    addresses: [
+      simon: 'simon.townsend1@ge.com',
+      banzai: 'banzai@ge.com'
+    ],
+    groups: [
+      everyone: ['simon', 'banzai'],
+      justMe: ['simon']
+    ]
+  ],
+  notifications: [
+    flowdock: [
+      /.*/: [
+        'banzaiFlow': ['.*']
+      ]
+    ],
+    email: [
+      /.*/: [
+        individuals: [
+          'simon': [
+            'PIPELINE:(FAILURE|SUCCESS)',
+            'VULNERABILITY:.*',
+            'QUALITY:.*'
+          ]
+        ]
+      ]
+    ]
+  ],
+  httpsProxy: [
+    envVar: 'https_proxy'
+  ],
+  build: [
+    /.*/: [:]
+  ],
+  integrationTests: [
+    /.*/: [:]
+  ],
+  publish: [
+    /master/: [:],
+    /[0-9]\.[0-9]\.[0-9]/: [
+      shell: 'publish-tag.sh'
+    ]
+  ],
+  deploy : [
+    /.*/: [:]
+  ],
+  gitOpsTrigger: [
+    /master|[0-9]\.[0-9]\.[0-9]/ : [
+      jenkinsJob: '/Banzai/GitOps/master',
+      stackId: 'dib'
+    ]
+  ],
+  filterSecrets: [
+    /PR\-(.*)|master/: [
         file: 'settings.xml',
         label: 'artifactoryPass',
-        secretId: '502700248-artifactory-pass',
+        secretId: '502700248-artifactory-pass'
+    ]
+  ],
+  downstreamBuilds: [
+    /master/: [
+      [
+        id: 'test-downstream-build',
+        job: '/Banzai/TestDownstreamBuild/master'
+      ]
+    ]
+  ],
+  vulnerabilityScans: [
+    /master/: [
+      [
+        type: 'checkmarx',
+        credId: 'ge-checkmarx',
+        preset: '17',
+        teamUUID: '53f766d4-5402-4980-8a15-2655ba6d18f0',
+        abortOnError: true
+      ],
+      [
+        type: 'coverity',
+        credId: 'coverity-auth-key-file',
+        toolId: 'coverity-2018.12',
+        serverHost: 'coverity.power.ge.com',
+        serverPort: '443',
+        buildCmd: 'mvn -s ./settings.xml clean install -U',
+        projectName: '1000373486_mdi',
+        abortOnError: true
+      ]
+    ]
+  ],
+  qualityScans: [
+    /master/: [
+      [
+        type: 'sonar',
+        serverUrl: 'https://sonarqube-prj-uai3023374-1khzijtwdgcwdt3qthlebgyojtz.apps.c01.container.cloud.ge.com',
+        credId: 'dib-sonar-auth-token'
+      ]
+    ]
+  ],
+  powerDevOpsReporting: [
+    branches: /master/,
+    uai: 'banzai-test-uai',
+    ci: '1000373486',
+    uaaCredId: 'uaa-bearer-token',
+    uaaUrl: 'https://a8a2ffc4-b04e-4ec1-bfed-7a51dd408725.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials',
+    metricsUrl: 'https://dev-cicadavpc-secure-pipeline-services-vanguard.cicada.digital.ge.com',
+    environments: [
+      /master/ : [
+        key: 0,
+        name: 'dev'
+      ]
     ]
   ]
-}
-
-
+])
