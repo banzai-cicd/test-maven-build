@@ -40,7 +40,11 @@ banzai([
     email: [
       /.*/: [
         individuals: [
-          'simon': ['PIPELINE:(FAILURE|SUCCESS)']
+          'simon': [
+            'PIPELINE:(FAILURE|SUCCESS)',
+            'VULNERABILITY:.*',
+            'QUALITY:.*'
+          ]
         ]
       ]
     ]
@@ -55,7 +59,10 @@ banzai([
     /.*/: [:]
   ],
   publish: [
-    /tag\-(.*)|develop/: [:]
+    /develop/: [:],
+    /[0-9]\.[0-9]\.[0-9]/: [
+      shell: 'publish-tag.sh'
+    ]
   ],
   deploy : [
     /.*/: [:]
@@ -86,7 +93,6 @@ banzai([
       [
         type: 'checkmarx',
         credId: 'ge-checkmarx',
-        resultEmails: ['banzai@ge.com'],
         preset: '17',
         teamUUID: '53f766d4-5402-4980-8a15-2655ba6d18f0',
         abortOnError: true
@@ -97,7 +103,6 @@ banzai([
         toolId: 'coverity-2018.12',
         serverHost: 'coverity.power.ge.com',
         serverPort: '443',
-        resultEmails: ['banzai@ge.com'],
         buildCmd: 'mvn -s ./settings.xml clean install -U',
         projectName: '1000373486_mdi',
         abortOnError: true
