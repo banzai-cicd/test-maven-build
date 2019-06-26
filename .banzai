@@ -1,4 +1,4 @@
-@Library('Banzai@opensource') _
+library 'Banzai@opensource'
 
 import com.ge.nola.cfg.BanzaiDevOpsReportingCfg
 
