@@ -72,6 +72,7 @@ banzai([
     host: 'PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com',
     port: '80'
   ],
+  noProxy: 'coverity.power.ge.com',
   build: [
     /.*/: [:]
   ],
