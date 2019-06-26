@@ -1,4 +1,20 @@
-@Library('Banzai@develop') _
+library 'Banzai@opensource'
+
+def powerDevOpsReportingCfg = [
+  branches: /master/,
+  uai: 'banzai-test-uai',
+  ci: '1000373486',
+  uaaCredId: 'uaa-bearer-token',
+  uaaUrl: 'https://a8a2ffc4-b04e-4ec1-bfed-7a51dd408725.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials',
+  metricsUrl: 'https://dev-cicadavpc-secure-pipeline-services-vanguard.cicada.digital.ge.com',
+  environments: [
+    /master/ : [
+      key: 0,
+      name: 'dev'
+    ]
+  ]
+]
+
 banzai([
   appName: 'test-maven-build',
   timeout: 60,
@@ -80,14 +96,14 @@ banzai([
         secretId: '502700248-artifactory-pass'
     ]
   ],
-  downstreamBuilds: [
-    /master/: [
-      [
-        id: 'test-downstream-build',
-        job: '/Banzai/TestDownstreamBuild/master'
-      ]
-    ]
-  ],
+  // downstreamBuilds: [
+  //   /master/: [
+  //     [
+  //       id: 'test-downstream-build',
+  //       job: '/Banzai/TestDownstreamBuild/master'
+  //     ]
+  //   ]
+  // ],
   vulnerabilityScans: [
     /master/: [
       [
@@ -118,18 +134,14 @@ banzai([
       ]
     ]
   ],
-  powerDevOpsReporting: [
-    branches: /master/,
-    uai: 'banzai-test-uai',
-    ci: '1000373486',
-    uaaCredId: 'uaa-bearer-token',
-    uaaUrl: 'https://a8a2ffc4-b04e-4ec1-bfed-7a51dd408725.predix-uaa.run.aws-usw02-pr.ice.predix.io/oauth/token?grant_type=client_credentials',
-    metricsUrl: 'https://dev-cicadavpc-secure-pipeline-services-vanguard.cicada.digital.ge.com',
-    environments: [
-      /master/ : [
-        key: 0,
-        name: 'dev'
-      ]
+  hooks: [
+    stages: [
+      pre: { cfg ->
+        powerDevOpsInitReportingSettings(cfg, powerDevOpsReportingCfg)
+      },
+      post: { cfg ->
+        powerDevOpsReportingStage(cfg, powerDevOpsReportingCfg)
+      }
     ]
   ]
 ])
