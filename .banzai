@@ -109,13 +109,13 @@ banzai([
   // ],
   vulnerabilityScans: [
     /master/: [
-      [
-        type: 'checkmarx',
-        credId: 'ge-checkmarx',
-        preset: '17',
-        teamUUID: '53f766d4-5402-4980-8a15-2655ba6d18f0',
-        abortOnError: true
-      ],
+      // [
+      //   type: 'checkmarx',
+      //   credId: 'ge-checkmarx',
+      //   preset: '17',
+      //   teamUUID: '53f766d4-5402-4980-8a15-2655ba6d18f0',
+      //   abortOnError: true
+      // ],
       [
         type: 'coverity',
         credId: 'coverity-auth-key-file',
