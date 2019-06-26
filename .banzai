@@ -69,7 +69,8 @@ banzai([
     ]
   ],
   httpsProxy: [
-    envVar: 'https_proxy'
+    host: 'PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com',
+    port: '80'
   ],
   build: [
     /.*/: [:]
