@@ -156,7 +156,10 @@ banzai([
                 proxyOn = true
             }
             
-            sonarqubeQualityResults(proxyOn);
+            String toolName = cfg.tools?.sonarQube ?: 'SonarQube'
+            withSonarQubeEnv(toolName) {
+              sonarqubeQualityResults(proxyOn);
+            }
           }
         }
 
