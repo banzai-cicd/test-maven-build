@@ -1,3 +1,5 @@
+import main.groovy.cicd.pipeline.settings.PipelineSettings;
+
 library 'Banzai@opensource'
 
 def powerDevOpsReportingCfg = [
@@ -140,6 +142,23 @@ banzai([
         powerDevOpsInitReportingSettings(cfg, powerDevOpsReportingCfg)
       },
       post: { cfg ->
+        def branchKey = cfg.qualityScans.keySet().find { BRANCH_NAME ==~ it }
+
+        if (branchKey) {
+          def sonarCfg = cfg.qualityScans[branchKey].find { it.type == 'sonar' }
+          if (sonarCfg) {
+            // report sonarResults to powerDevOps dash
+            Boolean proxyOn = false
+            def sonarHost = PipelineSettings.SonarQubeSettings.sonarHostUrl.replaceFirst(/(http|https):\/\//, "")
+            if ((!cfg.noProxy || !cfg.noProxy.contains(sonarHost)) && cfg.httpsProxy) {
+                logger "setting sonar proxy ${cfg.httpsProxy.host}:${cfg.httpsProxy.port}"
+                proxyOn = true
+            }
+            
+            sonarqubeQualityResults(proxyOn);
+          }
+        }
+
         powerDevOpsReportingStage(cfg, powerDevOpsReportingCfg)
       }
     ]
