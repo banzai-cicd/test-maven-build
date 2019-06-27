@@ -68,11 +68,6 @@ banzai([
       ]
     ]
   ],
-  httpsProxy: [
-    host: 'PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com',
-    port: '80'
-  ],
-  noProxy: 'coverity.power.ge.com,sonarqube-prj-uai3023374-1khzijtwdgcwdt3qthlebgyojtz.apps.c01.container.cloud.ge.com',
   build: [
     /.*/: [:]
   ],
