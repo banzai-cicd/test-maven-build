@@ -41,7 +41,7 @@ banzai([
     ] 
   ],
   email: [
-    admin: 'jenkinsadmin@ge.com'
+    admin: 'jenkinsadmin@ge.com',
     addresses: [
       simon: 'simon.townsend1@ge.com',
       banzai: 'banzai@ge.com'
