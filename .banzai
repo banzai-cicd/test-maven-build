@@ -1,4 +1,4 @@
-library 'Banzai@opensource'
+library 'BanzaiOS@master'
 
 import com.ge.nola.cfg.BanzaiDevOpsReportingCfg
 
@@ -41,6 +41,7 @@ banzai([
     ] 
   ],
   email: [
+    admin: 'jenkinsadmin@ge.com'
     addresses: [
       simon: 'simon.townsend1@ge.com',
       banzai: 'banzai@ge.com'
