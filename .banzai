@@ -1,4 +1,4 @@
-library 'BanzaiOS@master'
+library 'BanzaiOS@develop'
 
 import com.ge.nola.cfg.BanzaiDevOpsReportingCfg
 
