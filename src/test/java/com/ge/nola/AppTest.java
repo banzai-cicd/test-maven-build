@@ -1,4 +1,4 @@
-package com.ge.nola;
+package com.github.banzaicicd;
 
 import static org.junit.Assert.assertTrue;
 

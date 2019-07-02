@@ -1,4 +1,4 @@
-package com.ge.nola;
+package com.github.banzaicicd;
 
 /**
  * Hello world!
@@ -8,6 +8,6 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
-        System.exit(0); // test if coverity reports this
+        System.exit(0);
     }
 }
