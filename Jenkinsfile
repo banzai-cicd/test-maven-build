@@ -1,4 +1,4 @@
-library 'Banzai@develop'
+library 'BanzaiCICD@develop'
 
 banzai([
   appName: 'test-maven-build',
