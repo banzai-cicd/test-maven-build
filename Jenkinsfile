@@ -39,7 +39,7 @@ banzai([
     email: [
       /.*/: [
         individuals: [
-          'simon': [
+          'banzai': [
             'PIPELINE:(FAILURE|SUCCESS)',
             'VULNERABILITY:.*',
             'QUALITY:.*'
