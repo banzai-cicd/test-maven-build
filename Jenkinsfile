@@ -9,8 +9,7 @@ banzai([
   cleanWorkspace: [
     post: true
   ],
-  sshCreds: ['jenkins-ssh-cred-id'],
-  gitTokenId: 'git-token',
+  gitTokenId: '	banzai-git-token-user-pass',
   flowdock: [
     banzaiFlow: [
       credId: 'banzai-flowtoken',
